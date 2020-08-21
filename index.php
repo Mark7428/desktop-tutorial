@@ -59,14 +59,14 @@ $inso2 = "<a href='index.php?asc=1&na=email'>&#9650;</a>";
 $inso3 = "<a href='index.php?asc=1&na=status'>&#9650;</a>";
 if(isset($_GET['na'])){$na=$_GET['na'];}else{$na="";}
 if(isset($_GET['asc'])) {$sort="ORDER BY ".$na." ASC";
-$inso = "<a href='index.php?desc=1&na=name'>&#9660;</a>";
-$inso2 = "<a href='index.php?desc=1&na=email'>&#9660;</a>";
-$inso3 = "<a href='index.php?desc=1&na=status'>&#9660;</a>";
+if($na=="name"){$inso = "<a href='index.php?desc=1&na=name'>&#9660;</a>";}
+if($na=="email"){$inso2 = "<a href='index.php?desc=1&na=email'>&#9660;</a>";}
+if($na=="status"){$inso3 = "<a href='index.php?desc=1&na=status'>&#9660;</a>";}
 $num="asc=1&na=".$na."";}
 if(isset($_GET['desc'])) {$sort="ORDER BY ".$na." DESC";
-$inso = "<a href='index.php?asc=1&na=name'>&#9650;</a>";
-$inso2 = "<a href='index.php?asc=1&na=email'>&#9650;</a>";
-$inso3 = "<a href='index.php?asc=1&na=status'>&#9650;</a>";
+if($na=="name"){$inso = "<a href='index.php?asc=1&na=name'>&#9650;</a>";}
+if($na=="email"){$inso2 = "<a href='index.php?asc=1&na=email'>&#9650;</a>";}
+if($na=="status"){$inso3 = "<a href='index.php?asc=1&na=status'>&#9650;</a>";}
 $num="desc=1&na=".$na."";}
 $query ="
 SELECT * FROM spisok ".$sort." LIMIT $art,$kol";
