@@ -21,10 +21,10 @@ setcookie("pass", "");
   <body style="background-color: #ece9e0;">
  
 <div class="top" >
-<input type="button" class="but" onclick="zadan()" value="Создать задачу" onclick="" name="btn">
+<a href="add.php"><input type="button" class="but" value="Создать задачу" onclick="" name="btn"></a>
 <?php if($_COOKIE["login"]=="admin"){
-echo "<input type='button' style='right: 100px' onclick='admin()' class='but2' value='Админ панель' name='btn'><input type='button' class='but2' onclick='out()' value='Выход' name='btn'>";}else
-{echo "<input type='button' class='but2' onclick='admin()' value='Авторизироваться' name='btn'>";}
+echo "<a href='admin.php'><input type='button' style='right: 100px' class='but2' value='Админ панель' name='btn'></a><input type='button' class='but2' onclick='out()' value='Выход' name='btn'>";}else
+{echo "<a href='admin.php'><input type='button' class='but2' value='Авторизироваться' name='btn'></a>";}
 ?>
 </div>
 <script>
@@ -62,12 +62,12 @@ if(isset($_GET['asc'])) {$sort="ORDER BY ".$na." ASC";
 if($na=="name"){$inso = "<a href='index.php?desc=1&na=name'>&#9660;</a>";}
 if($na=="email"){$inso2 = "<a href='index.php?desc=1&na=email'>&#9660;</a>";}
 if($na=="status"){$inso3 = "<a href='index.php?desc=1&na=status'>&#9660;</a>";}
-$num="asc=1&na=".$na."";}
+$num="&asc=1&na=".$na."";}
 if(isset($_GET['desc'])) {$sort="ORDER BY ".$na." DESC";
 if($na=="name"){$inso = "<a href='index.php?asc=1&na=name'>&#9650;</a>";}
 if($na=="email"){$inso2 = "<a href='index.php?asc=1&na=email'>&#9650;</a>";}
 if($na=="status"){$inso3 = "<a href='index.php?asc=1&na=status'>&#9650;</a>";}
-$num="desc=1&na=".$na."";}
+$num="&desc=1&na=".$na."";}
 $query ="
 SELECT * FROM spisok ".$sort." LIMIT $art,$kol";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
@@ -95,22 +95,15 @@ $ch="";
 if($page==1){$la=$page;}else{$la=$page-1;}
 if($page==$str_pag){$ra=$page;}else{$ra=$page+1;}
 echo "<div class='num'>";
-echo "<a href=index.php?page=".$la."&".$num.">&lang;</a>";
+echo "<a href=index.php?page=".$la.$num.">&lang;</a>";
 for ($i = 1; $i <= $str_pag; $i++){
-	echo "<a href=index.php?page=".$i."&".$num.">".$i." </a></li>";
+	echo "<a href=index.php?page=".$i.$num.">".$i." </a></li>";
 }
-echo "<a href=index.php?page=".$ra."&".$num.">&rang;</a>";
+echo "<a href=index.php?page=".$ra.$num.">&rang;</a>";
 echo "</div>";
 
 ?>
-<script>
-function admin(){
-document.location.href = "admin.php";
-}
-function zadan(){
-document.location.href = "add.php";
-}
-</script>
+
 
 </form>
     <!-- Optional JavaScript -->

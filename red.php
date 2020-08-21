@@ -16,7 +16,7 @@
   <body>
   
 <div class="top" >
-<input type="button" class="but" onclick="zadan()" value="Список задач" onclick="" name="btn">
+<a href="index.php"><input type="button" class="but" value="Список задач" onclick="" name="btn"></a>
 </div>
 <?php
 $name=$_GET['name'];
@@ -42,13 +42,7 @@ $id=$_GET['id'];
 
 </form>
 
-<script>
 
-function zadan(){
-document.location.href = "index.php";
-}
-
-</script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="js.js"></script>

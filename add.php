@@ -16,10 +16,10 @@
   <body>
   
 <div class="top" >
-<input type="button" class="but" onclick="zadan()" value="Список задач" onclick="" name="btn">
+<a href="index.php"><input type="button" class="but" value="Список задач" onclick="" name="btn"></a>
 <?php if($_COOKIE["login"]=="admin"){
-echo "<input type='button' style='right: 100px' onclick='admin()' class='but2' value='Админ панель' name='btn'><input type='button' class='but2' onclick='out()' value='Выход' name='btn'>";}else
-{echo "<input type='button' class='but2' onclick='admin()' value='Авторизироваться' name='btn'>";}
+echo "<a href='admin.php'><input type='button' style='right: 100px'  class='but2' value='Админ панель' name='btn'></a><input type='button' class='but2' onclick='out()' value='Выход' name='btn'>";}else
+{echo "<a href='admin.php'><input type='button' class='but2' value='Авторизироваться' name='btn'></a>";}
 ?>
 </div>
 <script>
@@ -85,14 +85,7 @@ if($result)
  
 
 ?>
-<script>
-function admin(){
-document.location.href = "admin.php";
-}
-function zadan(){
-document.location.href = "index.php";
-}
-</script>
+
 
 <script type="text/javascript">
 document.querySelector('#fname').onclick = function(){

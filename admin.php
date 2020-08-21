@@ -63,11 +63,11 @@ $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($lin
   
   <body style="background-color: #ece9e0;">
 <div class="top" >
-<input type="button" class="but" onclick="zadan2()" value="Список задач" onclick="" name="btn">
-<input type="button" class="but" onclick="zadan()" value="Создать задачу" onclick="" name="btn">
+<a href="index.php"><input type="button" class="but" value="Список задач" onclick="" name="btn"></a>
+<a href="add.php"><input type="button" class="but" value="Создать задачу" onclick="" name="btn"></a>
 <?php if($_COOKIE["login"]=="admin"){
-echo "<input type='button' style='right: 100px' onclick='admin()' class='but2' value='Админ панель' name='btn'><input type='button' class='but2' onclick='out()' value='Выход' name='btn'>";}else
-{echo "<input type='button' class='but2' onclick='admin()' value='Авторизироваться' name='btn'>";}
+echo "<a href='admin.php'><input type='button' style='right: 100px' class='but2' value='Админ панель' name='btn'></a><input type='button' class='but2' onclick='out()' value='Выход' name='btn'>";}else
+{echo "<a href='admin.php'><input type='button' class='but2' value='Авторизироваться' name='btn'></a>";}
 ?>
 <script>
 function out(){
@@ -121,20 +121,7 @@ $ch="";
 
 ?>
 <?php echo $log; echo $pas;?>
-<script>
 
-
-function admin(){
-document.location.href = "admin.php";
-}
-function zadan(){
-document.location.href = "add.php";
-}
-function zadan2(){
-document.location.href = "index.php";
-}
-
-</script>
 
 </form>
     <!-- Optional JavaScript -->
