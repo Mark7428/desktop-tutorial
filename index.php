@@ -45,7 +45,7 @@ if (isset($_GET['page'])){
 	$page = $_GET['page'];
 }else $page = 1;
 
-$kol = 2;  
+$kol = 3;  
 
 $res = mysqli_query($link, "SELECT COUNT(*) FROM spisok");
 $row = mysqli_fetch_row($res);
@@ -82,9 +82,9 @@ $ch="";
 	for ($i = 0 ; $i < $rows ; ++$i)
 	{
 		$row = mysqli_fetch_row($result);
-	if($row[4]=="on"){$ch="Активен";}else{$ch="В Ожидании";}
+	if($row[4]=="on"){$ch="Активен";}else{$ch="В Ожидании";}if($row[5]=="on"){$red="<br> Отредактировано администратором";}else{$red="";}
 		echo "<tr>";
-			echo "<td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$ch</td>"; 
+			echo "<td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$ch $red</td>"; 
 		echo "</tr>";
 	}
 	echo "</table>";

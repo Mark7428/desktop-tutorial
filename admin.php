@@ -33,8 +33,8 @@ setcookie("pass", "");
 if(isset($_POST['btn']))
 {
 $id=$_GET['id'];
-$name=$_POST['name'];$pass=$_POST['mail'];$text=$_POST['text'];
-$query ="UPDATE `spisok` SET `name` = '$name', `email` = '$pass', `text` = '$text' WHERE `spisok`.`id` = $id";
+$name=$_POST['name'];$pass=$_POST['mail'];$text=$_POST['text'];$edit=$_GET['edit'];
+$query ="UPDATE `spisok` SET `name` = '$name', `email` = '$pass', `text` = '$text', `edit` = '$edit' WHERE `spisok`.`id` = $id";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
 }
 if(isset($_GET['name'])) {
@@ -44,6 +44,7 @@ $query ="UPDATE `spisok` SET `status` = '$check' WHERE `spisok`.`id` = $id";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
 	}
 } 
+
 ?>
 
 <!doctype html>

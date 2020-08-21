@@ -24,7 +24,7 @@ $pass=$_GET['pass'];
 $text=$_GET['text'];
 $id=$_GET['id'];
 ?>
-<form action="admin.php?id=<?php echo $id; ?>" method="POST" class="contact_form">
+<form action="admin.php?id=<?php echo $id;?>&edit=on" method="POST" class="contact_form">
 <div class="dv">
 
 
