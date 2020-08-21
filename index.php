@@ -1,4 +1,4 @@
-<?php 
+<?php include_once "bd.php";
 if(isset($_GET['out'])) {
 setcookie("login", "");  
 setcookie("pass", "");
@@ -32,13 +32,7 @@ function out(){
 document.location.href = "index.php?out=on";
 }
 </script>
-<?php
-   $link = @new mysqli('p573483.mysql.ihc.ru', 'p573483_bj', 'bj123456', 'p573483_bj');
-  if (mysqli_connect_errno()) {
-    echo "Подключение невозможно: ".mysqli_connect_error();
-  }
-  mysqli_set_charset($link, "utf8");
-?>
+
 
 <?php
 if (isset($_GET['page'])){
