@@ -30,13 +30,13 @@ setcookie("login", "");
 setcookie("pass", "");
  header("Location: admin.php");
 } 
-if(isset($_POST['btn']))
-{
+if(isset($_POST['btn'])){
+if($_COOKIE["login"]!="admin"){header("Location: admin.php");}else{
 $id=$_GET['id'];
 $name=$_POST['name'];$pass=$_POST['mail'];$text=$_POST['text'];$edit=$_GET['edit'];
 $query ="UPDATE `spisok` SET `name` = '$name', `email` = '$pass', `text` = '$text', `edit` = '$edit' WHERE `spisok`.`id` = $id";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
-}
+}}
 if(isset($_GET['name'])) {
 	if($_COOKIE["login"]!="admin"){header("Location: admin.php");}else{
 $check=$_GET['name'];$id=$_GET['id'];
